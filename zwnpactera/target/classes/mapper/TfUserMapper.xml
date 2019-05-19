@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pactera.mapper.TfUserMapper" >
+  <resultMap id="BaseResultMap" type="com.pactera.model.TfUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="rtxno" property="rtxno" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobil" property="mobil" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="subcompanyid" property="subcompanyid" jdbcType="INTEGER" />
+    <result column="departmentid" property="departmentid" jdbcType="INTEGER" />
+    <result column="userno" property="userno" jdbcType="VARCHAR" />
+    <result column="pwdlastset" property="pwdlastset" jdbcType="TIMESTAMP" />
+    <result column="useraccountcontrol" property="useraccountcontrol" jdbcType="INTEGER" />
+    <result column="pwdexpires" property="pwdexpires" jdbcType="TIMESTAMP" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="pwd2" property="pwd2" jdbcType="VARCHAR" />
+    <result column="accessfailedcount" property="accessfailedcount" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="jobid" property="jobid" jdbcType="INTEGER" />
+    <result column="is_internal" property="isInternal" jdbcType="INTEGER" />
+    <result column="identity" property="identity" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userid, username, rtxno, email, mobil, sex, subcompanyid, departmentid, userno, 
+    pwdlastset, useraccountcontrol, pwdexpires, pwd, pwd2, accessfailedcount, status, 
+    update_time, jobid, is_internal, identity
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.pactera.model.TfUserKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from tf_user
+    where id = #{id,jdbcType=INTEGER}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.pactera.model.TfUserKey" >
+    delete from tf_user
+    where id = #{id,jdbcType=INTEGER}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pactera.model.TfUser" >
+    insert into tf_user (id, userid, username, 
+      rtxno, email, mobil, 
+      sex, subcompanyid, departmentid, 
+      userno, pwdlastset, useraccountcontrol, 
+      pwdexpires, pwd, pwd2, 
+      accessfailedcount, status, update_time, 
+      jobid, is_internal, identity
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{rtxno,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobil,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{subcompanyid,jdbcType=INTEGER}, #{departmentid,jdbcType=INTEGER}, 
+      #{userno,jdbcType=VARCHAR}, #{pwdlastset,jdbcType=TIMESTAMP}, #{useraccountcontrol,jdbcType=INTEGER}, 
+      #{pwdexpires,jdbcType=TIMESTAMP}, #{pwd,jdbcType=VARCHAR}, #{pwd2,jdbcType=VARCHAR}, 
+      #{accessfailedcount,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{jobid,jdbcType=INTEGER}, #{isInternal,jdbcType=INTEGER}, #{identity,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pactera.model.TfUser" >
+    insert into tf_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="rtxno != null" >
+        rtxno,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="mobil != null" >
+        mobil,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="subcompanyid != null" >
+        subcompanyid,
+      </if>
+      <if test="departmentid != null" >
+        departmentid,
+      </if>
+      <if test="userno != null" >
+        userno,
+      </if>
+      <if test="pwdlastset != null" >
+        pwdlastset,
+      </if>
+      <if test="useraccountcontrol != null" >
+        useraccountcontrol,
+      </if>
+      <if test="pwdexpires != null" >
+        pwdexpires,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+      <if test="pwd2 != null" >
+        pwd2,
+      </if>
+      <if test="accessfailedcount != null" >
+        accessfailedcount,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="jobid != null" >
+        jobid,
+      </if>
+      <if test="isInternal != null" >
+        is_internal,
+      </if>
+      <if test="identity != null" >
+        identity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="rtxno != null" >
+        #{rtxno,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobil != null" >
+        #{mobil,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="subcompanyid != null" >
+        #{subcompanyid,jdbcType=INTEGER},
+      </if>
+      <if test="departmentid != null" >
+        #{departmentid,jdbcType=INTEGER},
+      </if>
+      <if test="userno != null" >
+        #{userno,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdlastset != null" >
+        #{pwdlastset,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useraccountcontrol != null" >
+        #{useraccountcontrol,jdbcType=INTEGER},
+      </if>
+      <if test="pwdexpires != null" >
+        #{pwdexpires,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd2 != null" >
+        #{pwd2,jdbcType=VARCHAR},
+      </if>
+      <if test="accessfailedcount != null" >
+        #{accessfailedcount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jobid != null" >
+        #{jobid,jdbcType=INTEGER},
+      </if>
+      <if test="isInternal != null" >
+        #{isInternal,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        #{identity,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pactera.model.TfUser" >
+    update tf_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="rtxno != null" >
+        rtxno = #{rtxno,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobil != null" >
+        mobil = #{mobil,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="subcompanyid != null" >
+        subcompanyid = #{subcompanyid,jdbcType=INTEGER},
+      </if>
+      <if test="departmentid != null" >
+        departmentid = #{departmentid,jdbcType=INTEGER},
+      </if>
+      <if test="userno != null" >
+        userno = #{userno,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdlastset != null" >
+        pwdlastset = #{pwdlastset,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useraccountcontrol != null" >
+        useraccountcontrol = #{useraccountcontrol,jdbcType=INTEGER},
+      </if>
+      <if test="pwdexpires != null" >
+        pwdexpires = #{pwdexpires,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pwd != null" >
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd2 != null" >
+        pwd2 = #{pwd2,jdbcType=VARCHAR},
+      </if>
+      <if test="accessfailedcount != null" >
+        accessfailedcount = #{accessfailedcount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jobid != null" >
+        jobid = #{jobid,jdbcType=INTEGER},
+      </if>
+      <if test="isInternal != null" >
+        is_internal = #{isInternal,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        identity = #{identity,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pactera.model.TfUser" >
+    update tf_user
+    set username = #{username,jdbcType=VARCHAR},
+      rtxno = #{rtxno,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobil = #{mobil,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      subcompanyid = #{subcompanyid,jdbcType=INTEGER},
+      departmentid = #{departmentid,jdbcType=INTEGER},
+      userno = #{userno,jdbcType=VARCHAR},
+      pwdlastset = #{pwdlastset,jdbcType=TIMESTAMP},
+      useraccountcontrol = #{useraccountcontrol,jdbcType=INTEGER},
+      pwdexpires = #{pwdexpires,jdbcType=TIMESTAMP},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      pwd2 = #{pwd2,jdbcType=VARCHAR},
+      accessfailedcount = #{accessfailedcount,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      jobid = #{jobid,jdbcType=INTEGER},
+      is_internal = #{isInternal,jdbcType=INTEGER},
+      identity = #{identity,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectUserById" resultType="com.pactera.model.TfUser">
+    select * from tf_user where id = #{id}
+  </select>
+    <select id="selectUserInfoByUserName" resultType="com.pactera.model.TfUser">
+      select * from tf_user where userid = #{userName}
+    </select>
+  <select id="selectUserPermissions" resultType="java.lang.String">
+    SELECT DISTINCT p.ELEMENT,u.* FROM tf_user u
+	INNER JOIN sys_user_role ur ON u.`userid` = ur.`USER_ID`
+	INNER JOIN sys_role r ON r.ID=ur.ROLE_ID  and r.`STATUS` = 1
+	INNER JOIN sys_role_permissions rp ON rp.ROLE_ID=r.ID
+	INNER JOIN sys_permissions p ON p.ID=rp.PERMISSIONS_ID and p.`STATUS` = 1
+	WHERE
+	u.`userid`=#{userName}
+	and u.`STATUS` = 1
+	and r.APP_ID = #{appId}
+  </select>
+</mapper>
