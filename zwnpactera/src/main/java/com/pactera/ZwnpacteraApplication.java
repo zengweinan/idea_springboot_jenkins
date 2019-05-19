@@ -26,6 +26,7 @@ public class ZwnpacteraApplication extends SpringBootServletInitializer implemen
     public void customize(ConfigurableEmbeddedServletContainer container) {
         //指定项目名称
        // container.setContextPath("/pactera");
+	   System.out.print("222222222222")
         //指定端口地址
         container.setPort(8090);
     }
