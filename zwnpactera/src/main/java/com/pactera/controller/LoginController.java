@@ -42,7 +42,7 @@ public class LoginController {
 
     @RequestMapping(value = "getCodeByWebAuthorize", method = {RequestMethod.POST, RequestMethod.GET})
     public String getCodeByWebAuthorize(String code,String state) {
-        System.out.print("22");
+        System.out.print("22fasdfasdfasdfasdf");
         try {
             System.out.println(code);
             //根据code获取网页授权
