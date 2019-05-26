@@ -122,6 +122,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <executable>/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-7.b13.el7.x86_64/bin/javac.exe</executable>
+                </configuration>
             </plugin>
 
             <!-- mybatis generator 自动生成代码插件 -->
