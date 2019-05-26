@@ -6,10 +6,7 @@
     <groupId>com.zwnpactera</groupId>
     <artifactId>zwnpactera</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>../spring/springbootAndDobbue</module>
-        <module>springboot-dubbo-interface</module>
-    </modules>
+
     <packaging>pom</packaging>
 
     <name>zwnpactera</name>
