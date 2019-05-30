@@ -34,8 +34,9 @@ public class LoginController {
     private SendMqMessageServiceImpl mqListenerService;
 
     @RequestMapping(value = "login", method = {RequestMethod.POST, RequestMethod.GET})
+	@ResponseBody
     public String login() {
-        return "login";
+        return "你好窝,成功了窝,继续努力";
     }
 
 
