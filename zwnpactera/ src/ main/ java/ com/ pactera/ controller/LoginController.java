@@ -36,7 +36,7 @@ public class LoginController {
     @RequestMapping(value = "login", method = {RequestMethod.POST, RequestMethod.GET})
     public String login() {
       System.out.print("网页用户信息:");
-	  return null;
+	  return "2222";
     }
 
 
